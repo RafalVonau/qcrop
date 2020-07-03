@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="/qcrop">
+    <file>images/filenew.png</file>
+    <file>images/fileopen.png</file>
+    <file>images/convert.png</file>
+    <file>images/exit.png</file>
+  </qresource>
+</RCC>

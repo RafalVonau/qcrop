@@ -1,0 +1,60 @@
+#!/bin/bash
+CDIR=`pwd`
+cd ..
+KDIR=`pwd`
+PDIR=`pwd`/QCrop/
+export PATH="/opt/mxe_10/usr/bin/:$PATH"
+/opt/mxe_10/usr/bin/i686-w64-mingw32.shared-qmake-qt5
+#/opt/mxe_10/usr/i686-w64-mingw32.shared/qt5/bin/qmake
+make -j4
+make install
+
+cp -f ${KDIR}/bin/QCrop.exe ${PDIR}
+cp -f ${KDIR}/cmd.txt ${PDIR}
+cp -dpRf ${KDIR}/help ${PDIR}
+
+cp -f ${CDIR}/default.kr3 ${PDIR}
+
+
+function installDeps {
+	/opt/mxe_10/tools/copydlldeps.sh --infile $1PDIR/qcrop.exe \
+                --destdir $PDIR/   \
+                --recursivesrcdir /opt/mxe_10/usr/i686-w64-mingw32.shared/ \
+                --srcdir $PDIR \
+                --copy \
+                --enforcedir /opt/mxe_10/usr/i686-w64-mingw32.shared/qt5/plugins/platforms/ \
+                --objdump /opt/mxe_10/usr/bin/i686-w64-mingw32.shared-objdump
+}
+
+
+#
+# Copy plugins
+#
+cp -dpR /opt/mxe_10/usr/i686-w64-mingw32.shared/qt5/plugins/audio ${PDIR}/
+cp -dpR /opt/mxe_10/usr/i686-w64-mingw32.shared/qt5/plugins/renderplugins ${PDIR}/
+cp -dpR /opt/mxe_10/usr/i686-w64-mingw32.shared/qt5/plugins/imageformats ${PDIR}/
+cp -dpR /opt/mxe_10/usr/i686-w64-mingw32.shared/qt5/plugins/iconengines ${PDIR}/
+cp -dpR /opt/mxe_10/usr/i686-w64-mingw32.shared/qt5/plugins/sqldrivers ${PDIR}/
+cp -dpR /opt/mxe_10/usr/i686-w64-mingw32.shared/qt5/plugins/printsupport ${PDIR}/
+cp -dpR /opt/mxe_10/usr/i686-w64-mingw32.shared/qt5/plugins/texttospeech ${PDIR}/
+
+#cp -f $CDIR/qsqlcipher.dll ${PDIR}/sqldrivers/
+
+cp -dpR /opt/mxe_10/usr/i686-w64-mingw32.shared/bin/libpcre-1.dll ${PDIR}/
+cp -dpR /opt/mxe_10/usr/i686-w64-mingw32.shared/bin/libpcre16-0.dll ${PDIR}/
+cp -dpR /opt/mxe_10/usr/i686-w64-mingw32.shared/bin/libpcrecpp-0.dll ${PDIR}/
+cp -dpR /opt/mxe_10/usr/i686-w64-mingw32.shared/bin/libpcreposix-0.dll ${PDIR}/
+
+
+#
+# Install deps
+#
+installDeps $PDIR/qcrop.exe
+installDeps $PDIR/sqldrivers/qsqlite.dll
+installDeps $PDIR/printsupport/windowsprintersupport.dll
+#installDeps $PDIR/libsqlcipher-0.dll
+
+#cp -f $CDIR/libsqlcipher-0.dll ${PDIR}/libsqlite3-0.dll
+#windeployqt 
+#sudo make install
+#windeployqt 

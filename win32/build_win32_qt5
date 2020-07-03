@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Debian
+#apt-get install autoconf automake autopoint bash bison bzip2 flex gettext git g++ gperf intltool libffi-dev libgdk-pixbuf2.0-dev libtool-bin libltdl-dev libssl-dev libxml-parser-perl make 
+# openssl p7zip-full patch perl pkg-config python ruby scons sed unzip wget xz-utils
+
+# Manjaro
+#sudo pacman -S autoconf automake bash bison bzip2 flex gcc git coreutils gettext gperf make sed tar intltool libffi libtool openssl p7zip patch perl perl-xml-parser pkg-config python 
+# ruby scons unzip wget xz zlib glibc
+
+cd /undefended
+git clone https://github.com/mxe/mxe.git ./mxe_10
+sudo ln -s /undefended/mxe_10 /opt/mxe_10
+cd /opt/mxe_10
+git pull
+
+PATH=/usr/bin:$PATH
+echo $PATH
+#make -j4 JOBS=4 MXE_TARGETS=i686-w64-mingw32.shared MXE_PLUGIN_DIRS=plugins/examples/qt5-freeze gcc glib libzip libusb1 libftdi1 glibmm boost check qt5 qtbase_CONFIGURE_OPTS='-no-sql-mysql'
+make --jobs=4 --keep-going MXE_TARGETS=i686-w64-mingw32.shared gcc glib libzip libusb1 libftdi1 glibmm boost check qt5 qtbase_CONFIGURE_OPTS='-sql-mysql'
+

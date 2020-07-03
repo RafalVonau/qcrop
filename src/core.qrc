@@ -1,0 +1,31 @@
+<!DOCTYPE RCC>
+<RCC>
+	<qresource prefix="/core" >
+		<file>images/style.png</file>
+		<file>images/script.png</file>
+		<file>images/script_clear.png</file>
+		<file>images/debugger.png</file>
+		<file>images/show_debugger.png</file>
+		<file>images/script_run.png</file>
+		<file>images/script_reload.png</file>
+		<file>images/log.png</file>
+		<file>images/plug.png</file>
+		<file>images/chartwindow.png</file>
+		<file>images/editpaste.png</file>
+		<file>images/fileopen.png</file>
+		<file>images/filesave.png</file>
+		<file>images/pirate.png</file>
+		<file>images/zoomin.png</file>
+		<file>images/exportpdf.png</file>
+		<file>images/fileprint.png</file>
+		<file>images/help.png</file>
+		<file>images/viewmag1.png</file>
+		<file>images/zoomout.png</file>
+		<file>images/folder.png</file>
+		<file>images/offline.png</file>
+		<file>images/chart.png</file>
+		<file>images/eventslog.png</file>
+		<file>images/database.png</file>
+		<file>images/settings.png</file>
+	</qresource>
+</RCC>

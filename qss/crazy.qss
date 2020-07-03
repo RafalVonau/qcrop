@@ -1,0 +1,141 @@
+.QWidget {
+   background-color: beige;
+}
+
+QTableView, ChartView, QDoubleSpinBox, QSpinBox {
+   background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 darkkhaki, stop: 0.5 cornsilk, stop: 1.0 darkkhaki);
+}
+
+QTableView, ChartView, QTextEdit {
+    border-width: 2px;
+    padding: 1px;
+    border-style: solid;
+    border-color: darkkhaki;
+    border-radius: 5px;
+}
+
+/* Nice Windows-XP-style password character. */
+QLineEdit[echoMode="2"] {
+    lineedit-password-character: 9679;
+}
+
+/* We provide a min-width and min-height for push buttons
+   so that they look elegant regardless of the width of the text. */
+QPushButton {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 darkkhaki, stop: 0.5 cornsilk, stop: 1.0 darkkhaki);
+    border-width: 2px;
+    border-color: darkkhaki;
+    border-style: solid;
+    border-radius: 5;
+    padding: 3px;
+    min-width: 9ex;
+    min-height: 2.5ex;
+}
+
+QPushButton:hover {
+   background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 khaki, stop: 0.5 darkkhaki, stop: 1.0 khaki);
+}
+
+/* Increase the padding, so the text is shifted when the button is
+   pressed. */
+QPushButton:pressed {
+    padding-left: 5px;
+    padding-top: 5px;
+    background-color: #d0d67c;
+}
+
+QLabel, QAbstractButton {
+    font: bold;
+}
+
+/* Mark mandatory fields with a brownish color. */
+.mandatory {
+    color: brown;
+}
+
+/* Bold text on status bar looks awful. */
+QStatusBar QLabel {
+   font: normal;
+}
+
+QStatusBar::item {
+    border-width: 1;
+    border-color: darkkhaki;
+    border-style: solid;
+    border-radius: 2;
+}
+
+QComboBox, QLineEdit, QSpinBox, QTextEdit, QListView, QLCDNumber {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 darkkhaki, stop: 0.5 cornsilk, stop: 1.0 darkkhaki);
+    selection-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 darkkhaki, stop: 0.5 cornsilk, stop: 1.0 darkkhaki);
+    selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #047777, stop: 0.5 #145555, stop: 1.0 #047777);
+}
+
+QComboBox#mode, QDoubleSpinBox#time {
+    font-size: 14pt;
+}
+
+/* We reserve 1 pixel space in padding. When we get the focus,
+   we kill the padding and enlarge the border. This makes the items
+   glow. */
+QLineEdit {
+    border-width: 2px;
+    padding: 1px;
+    border-style: solid;
+    border-color: darkkhaki;
+    border-radius: 5px;
+}
+
+/* As mentioned above, eliminate the padding and increase the border. */
+QLineEdit:focus, QFrame:focus {
+    border-width: 3px;
+    padding: 0px;
+}
+
+QLineEdit:read-only {
+     background: cyan;
+}
+
+/* Nice to have the background color change when hovered. */
+QRadioButton:hover, QCheckBox:hover {
+    background-color: wheat;
+}
+
+/* Force the dialog's buttons to follow the Windows guidelines. */
+QDialogButtonBox {
+    button-layout: 0;
+}
+
+QToolTip {
+    padding: 5px;
+    border-radius: 3px;
+    opacity: 200;
+}
+
+QTabWidget::pane { /* The tab widget frame */
+    border-bottom: 2px solid #C2C7CB;
+}
+QTabWidget::tab-bar {
+    left: 5px; /* move to the right by 5px */
+}
+/* Style the tab using the tab sub-control. Note that it reads QTabBar _not_ QTabWidget */
+QTabBar::tab {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 darkkhaki, stop: 0.5 cornsilk, stop: 1.0 darkkhaki);
+    border: 2px solid #C4C4C3;
+    border-top-color: #C2C7CB; /* same as the pane color */
+    min-width: 8ex;
+    padding: 2px;
+}
+
+QTabBar::tab:selected, QTabBar::tab:hover {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 khaki, stop: 0.5 darkkhaki, stop: 1.0 khaki);
+}
+
+QTabBar::tab:selected {
+    border-color: #9B9B9B;
+    border-top-color: #C2C7CB; /* same as pane color */
+}
+
+QTabBar::tab:!selected {
+    margin-top: 2px; /* make non-selected tabs look smaller */
+}
